@@ -20,7 +20,7 @@ rule_names
 </code>
 
 ### Verificar regras
-<code>
+<pre>
 >>> rules()
 [('comment', ['m1']),
  ('given', ['m1']),
@@ -44,7 +44,7 @@ rule_names
  ('pbc', ['Not(m1)', 'F', 'm1']),
  ('lem', ['Or(m1,Not(m1))']),
  ('copy', ['m1', 'm1'])]
- </code>
+ </pre>
 
 ### Suposicao
 <code>
