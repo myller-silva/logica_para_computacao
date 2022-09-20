@@ -9,6 +9,11 @@
 checkp(Text('Testando o flip'), comment)
 </code> 
 
+### Criar atomica
+<code>
+atom = Letter('atom')
+</code>
+
 ### Criar premissa
 <code>
 checkp(Impl(j, Impl(j, m)), given)
@@ -17,6 +22,16 @@ checkp(Impl(j, Impl(j, m)), given)
 ### Verificar nomes das regras
 <code>
 rule_names
+</code>
+
+### Alternativa ao checkp() para aplicar regras
+<code>
+rapply(nome_da_regra, linha_que_será_aplicada, dado_que)
+</code>
+
+### Suposicao
+<code>
+checkp(j, assume)
 </code>
 
 ### Verificar regras
@@ -46,9 +61,30 @@ rule_names
  ('copy', ['m1', 'm1'])]
  </pre>
 
-### Suposicao
-<code>
-checkp(j, assume)
-</code>
+### rule_names
 
-###
+<pre>
+rule_names
+{'comment': 'Comment', 
+'given': 'Given', 
+'assume': 'Assumption', 
+'top': 'Top rule',
+'ai': 'And-Introduction',
+'ael': 'And-Elimination (Left)', 
+'aer': 'And-Elimination (Right)', 
+'oil': 'Or-Introduction (Left)', 
+'oir': 'Or-Introduction (Right)', 
+'contra': 'Contradiction', 
+'raa': 'Reductio Ad Absurdum', 
+'impli': 'Implication-Introduction', 
+'imple': 'Implication-Elimination (Modus Ponens)', 
+'assume_case': 'Assumption (next case)', 
+'ore': 'Or-Elimination', 
+'fe': 'False-Elimination', 
+'nne': 'Double-negation Elimination', 
+'mt': 'Modus Tollens', 
+'nni': 'Double-negation Introduction', 
+'pbc': 'Proof By Contradiction', 'lem': 
+'Excluded Middle', 
+'copy': 'Copy'}
+</pre>
