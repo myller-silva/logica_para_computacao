@@ -16,7 +16,7 @@ r = Atom('r');
 
 fol = Implies(p, q)
 print(fol)
-print(f'number_of_connectives: {number_of_connectives(fol)}')
+print(f'numero de conectivos: {number_of_connectives(fol)}')
 
 
 
