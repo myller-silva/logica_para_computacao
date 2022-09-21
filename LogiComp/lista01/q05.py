@@ -16,12 +16,15 @@ p = Atom('p'); q = Atom('q'); r = Atom('r');
 j = Atom('j'); l = Atom('l'); m = Atom('m');
 
 f1 = Or(And(p, Not(Implies(p, Not(q)))), Not(q))
-
-print(f1)
+print('-*'*15)
 print( atoms(f1), end='\n\n' )
+
 f2 = Not(Implies(Implies(Not(r), p), Not(q)))
-print(f2)
+print('-*'*15)
 print( atoms(f2), end='\n\n' )
+
 f3 = Implies( And(f1, Implies(Not(f2), r)), Or(Not(q), m) )
-print(f3)
+print('-*'*15)
 print( atoms(f3), end='\n\n' )
+
+print(atoms(Or(Not(And(Atom('p'), Atom('s'))), Atom('p')))) 
