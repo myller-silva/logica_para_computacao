@@ -3,7 +3,7 @@ from functions import *
 
 def number_of_connectives(A):
   if(isinstance(A, Atom)):
-    return 1;
+    return 0;
   if(isinstance(A, Not)):
     return 1 + number_of_connectives(A.inner);
   if(isinstance(A, Or) or isinstance(A, And) or isinstance(A, Implies)):
