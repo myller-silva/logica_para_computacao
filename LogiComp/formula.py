@@ -59,7 +59,7 @@ class Not(Formula):
 
     def __str__(self):
         return "(" + u"\u00ac" + str(self.inner) + ")"
-
+    
     def __eq__(self, other):
         return isinstance(other, Not) and other.inner == self.inner
 
