@@ -2,7 +2,8 @@
 do some computation on its syntactic structure. """
 
 
-from formula import *
+import typing
+from LogiComp.formula import *
 
 
 def length(formula):
@@ -41,18 +42,27 @@ def subformulas(formula):
 
 
 def atoms(formula):
-    """Returns the set of all atoms occurring in a formula.
+  if(isinstance(formula, Atom)):
+    return [formula.name];
+  if(isinstance(formula, Not)):
+    return atoms(formula.inner);
+  if(isinstance(formula, Or) or isinstance(formula, And) or isinstance(formula, Implies) ):    
+    return list(typing.OrderedDict.fromkeys(atoms(formula.left) + atoms(formula.right)));
 
-    For example, observe the piece of code below.
 
-    my_formula = Implies(Atom('p'), Or(Atom('p'), Atom('s')))
-    for atom in atoms(my_formula):
-        print(atom)
+# def atoms(formula):
+#     """Returns the set of all atoms occurring in a formula.
 
-    This piece of code above prints: p, s
-    (Note that there is no repetition of p)
-    """
-    pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
+#     For example, observe the piece of code below.
+
+#     my_formula = Implies(Atom('p'), Or(Atom('p'), Atom('s')))
+#     for atom in atoms(my_formula):
+#         print(atom)
+
+#     This piece of code above prints: p, s
+#     (Note that there is no repetition of p)
+#     """
+#     pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
 
 
 def number_of_atoms(formula):
@@ -67,6 +77,12 @@ def number_of_atoms(formula):
 
 def number_of_connectives(formula):
     """Returns the number of connectives occurring in a formula."""
+    if(isinstance(formula, Atom)):
+        return 0;
+    if(isinstance(formula, Not)):
+        return 1 + number_of_connectives(formula.inner);
+    if(isinstance(formula, Or) or isinstance(formula, And) or isinstance(formula, Implies)):
+        return 1 + number_of_connectives(formula.left) + number_of_connectives(formula.right);
     pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
 
 
