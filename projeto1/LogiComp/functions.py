@@ -64,15 +64,23 @@ def atoms(formula):
 #     """
 #     pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
 
-
 def number_of_atoms(formula):
-    """Returns the number of atoms occurring in a formula.
-    For instance,
-    number_of_atoms(Implies(Atom('q'), And(Atom('p'), Atom('q'))))
+  if(isinstance(formula, Atom)):
+    return 1
+  if(isinstance(formula, Not)):
+    return number_of_atoms(formula.inner)
+  if(isinstance(formula, Or) or isinstance(formula, And) or isinstance(formula, Implies)):
+    return number_of_atoms(formula.left) + number_of_atoms(formula.right)
 
-    must return 3 (Observe that this function counts the repetitions of atoms)
-    """
-    pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
+
+# def number_of_atoms(formula):
+#     """Returns the number of atoms occurring in a formula.
+#     For instance,
+#     number_of_atoms(Implies(Atom('q'), And(Atom('p'), Atom('q'))))
+
+#     must return 3 (Observe that this function counts the repetitions of atoms)
+#     """
+#     pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
 
 
 def number_of_connectives(formula):
