@@ -1,5 +1,5 @@
 import string
-from LogiComp.formula import Atom, And, Or
+from LogiComp.formula import *
 from LogiComp.functions import atoms, is_negation_normal_form
 
 
@@ -40,11 +40,10 @@ r = Atom('r')
 s = Atom('s')
 
 
-formula =  And(Or(r, r), r)
+formula = Not(p)
 
 
 a = atoms(formula)
 print(formula)
 print(a)
-print((formula.left))
 print(is_negation_normal_form(formula))
