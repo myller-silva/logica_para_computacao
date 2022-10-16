@@ -1,10 +1,12 @@
+import string
+from LogiComp.formula import Atom, And, Or
+from LogiComp.functions import atoms
+
 def satisfiablity_checking(formula):
   list_atoms = atoms(formula)
   interpretation = [] #conjunto vazio
   return sat(formula, list_atoms, interpretation)
 
-def atoms():
-  pass
 
 def UniaoDeConjuntos(interpretacao, interpretacao2):
   intercecao = None
@@ -30,5 +32,17 @@ def truth_value():
   pass
 
 
-from LogiComp.formula import Atom, And
-print(And('p', Atom('q')))
+print()
+p = Atom('p')
+q = Atom('q')
+r = Atom('r')
+s = Atom('s')
+
+
+formula =  And(Or(r, r), r)
+
+
+a = atoms(formula)
+print(formula)
+print(a)
+print((formula.left))
