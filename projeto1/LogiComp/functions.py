@@ -101,11 +101,23 @@ def is_clause(formula):
     """Returns True if formula is a clause. It returns False, otherwise"""
     pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
 
-
 def is_negation_normal_form(formula):
-    """Returns True if formula is in negation normal form.
-    Returns False, otherwise."""
-    pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
+  if(isinstance(formula, Atom)):
+    return True
+  if(isinstance(formula, Not)):
+    return True if (isinstance(formula.inner, Atom)) else False
+  if(isinstance(formula, Or) or isinstance(formula, And)):
+    if(not isinstance(formula.left, Atom)):
+      return is_negation_normal_form(formula.left)
+    if(not isinstance(formula.right, Atom)):
+      return is_negation_normal_form(formula.right)
+    return True
+  return False
+
+# def is_negation_normal_form(formula):
+#     """Returns True if formula is in negation normal form.
+#     Returns False, otherwise."""
+#     pass  # ======== REMOVE THIS LINE AND INSERT YOUR CODE HERE ========
 
 
 def is_cnf(formula):
