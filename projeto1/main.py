@@ -1,6 +1,7 @@
 import string
 from LogiComp.formula import Atom, And, Or
-from LogiComp.functions import atoms
+from LogiComp.functions import atoms, is_negation_normal_form
+
 
 def satisfiablity_checking(formula):
   list_atoms = atoms(formula)
@@ -46,3 +47,4 @@ a = atoms(formula)
 print(formula)
 print(a)
 print((formula.left))
+print(is_negation_normal_form(formula))
