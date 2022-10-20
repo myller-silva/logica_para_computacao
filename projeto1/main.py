@@ -1,4 +1,3 @@
-import string
 from LogiComp.formula import *
 from LogiComp.functions import atoms, is_negation_normal_form
 
