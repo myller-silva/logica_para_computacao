@@ -2,13 +2,13 @@ from LogiComp.formula import *
 from LogiComp.functions import atoms, is_negation_normal_form
 
 
-def satisfiablity_checking(formula):
+def satisfiablity_checking(formula): #força bruta
   list_atoms = atoms(formula)
   interpretation = [] #conjunto vazio
   return sat(formula, list_atoms, interpretation)
 
 
-def UniaoDeConjuntos(interpretacao, interpretacao2):
+def UniaoDeConjuntos(interpretacao, interpretacao2): #obs 
   intercecao = None
   return interpretacao + interpretacao2 - intercecao
 
@@ -45,4 +45,4 @@ formula = Not(p)
 a = atoms(formula)
 print(formula)
 print(a)
-print(is_negation_normal_form(formula))
+
