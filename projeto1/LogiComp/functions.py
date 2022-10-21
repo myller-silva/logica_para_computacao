@@ -3,7 +3,7 @@ do some computation on its syntactic structure. """
 
 
 import typing
-from LogiComp.formula import *
+from projeto1.LogiComp.formula import *
 
 
 def length(formula):
